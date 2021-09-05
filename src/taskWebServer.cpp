@@ -21,7 +21,8 @@ std::list <tReceivedPacketData*> receivedPackets;
 const int MAX_RECEIVED_LIST_SIZE = 50;
 
 String apSSID = "";
-String apPassword = "xxxxxxxxxx";
+//String apPassword = "xxxxxxxxxx";
+String apPassword = PREF_AP_PW;
 WebServer server(80);
 #ifdef KISS_PROTOCOL
   WiFiServer tncServer(NETWORK_TNC_PORT);
@@ -152,6 +153,7 @@ void handle_Cfg() {
   String jsonData = "{";
   jsonData += String("\"") + PREF_WIFI_PASSWORD + "\": \"" + jsonEscape((preferences.getString(PREF_WIFI_PASSWORD).isEmpty() ? String("") : "*")) + R"(",)";
   jsonData += jsonLineFromPreferenceString(PREF_WIFI_SSID);
+  jsonData += jsonLineFromPreferenceString(PREF_AP_PW);
   jsonData += jsonLineFromPreferenceDouble(PREF_LORA_FREQ_PRESET);
   jsonData += jsonLineFromPreferenceInt(PREF_LORA_SPEED_PRESET);
   jsonData += jsonLineFromPreferenceString(PREF_APRS_CALLSIGN);
