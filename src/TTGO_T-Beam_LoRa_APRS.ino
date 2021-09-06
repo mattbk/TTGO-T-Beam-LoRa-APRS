@@ -535,7 +535,7 @@ void setup(){
 
     // Wireless access point settings
 
-    ap_password = preferences.getInt(PREF_AP_PW);
+    //ap_password = preferences.getInt(PREF_AP_PW);
 
     if (!preferences.getBool(PREF_AP_PW_INIT)){
       preferences.putBool(PREF_AP_PW_INIT, true);

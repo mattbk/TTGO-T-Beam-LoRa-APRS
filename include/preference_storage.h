@@ -11,7 +11,7 @@ extern Preferences preferences;
 static const char *const PREF_WIFI_SSID = "wifi_ssid";
 static const char *const PREF_WIFI_PASSWORD = "wifi_password";
 static const char *const PREF_AP_PW_INIT = "ap_password_i";
-static const char *const PREF_AP_PW = "ap_password";
+static const char *const PREF_AP_PW = "xxxxxxxxxx";
 // LoRa settings
 static const char *const PREF_LORA_FREQ_PRESET_INIT = "lora_freq_i";
 static const char *const PREF_LORA_FREQ_PRESET = "lora_freq";

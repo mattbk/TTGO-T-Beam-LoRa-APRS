@@ -21,8 +21,8 @@ std::list <tReceivedPacketData*> receivedPackets;
 const int MAX_RECEIVED_LIST_SIZE = 50;
 
 String apSSID = "";
-//String apPassword = "xxxxxxxxxx";
-String apPassword = PREF_AP_PW;
+String apPassword = "xxxxxxxxxx";
+//String apPassword = PREF_AP_PW;
 WebServer server(80);
 #ifdef KISS_PROTOCOL
   WiFiServer tncServer(NETWORK_TNC_PORT);
@@ -119,6 +119,14 @@ void handle_SaveWifiCfg() {
 
   preferences.putString(PREF_WIFI_SSID, server.arg(PREF_WIFI_SSID));
   preferences.putString(PREF_WIFI_PASSWORD, server.arg(PREF_WIFI_PASSWORD));
+
+  server.sendHeader("Location", "/");
+  server.send(302,"text/html", "");
+}
+
+void handle_SaveAPCfg() {
+ 
+  preferences.putString(PREF_AP_PW, server.arg(PREF_AP_PW));
 
   server.sendHeader("Location", "/");
   server.send(302,"text/html", "");
@@ -292,6 +300,7 @@ void handle_saveDeviceCfg(){
   server.on("/js.js", handle_Js);
   server.on("/scan_wifi", handle_ScanWifi);
   server.on("/save_wifi_cfg", handle_SaveWifiCfg);
+  server.on("/save_ap_cfg", handle_SaveAPCfg);
   server.on("/reboot", handle_Reboot);
   server.on("/shutdown", handle_Shutdown);
   server.on("/cfg", handle_Cfg);

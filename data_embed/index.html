@@ -32,6 +32,20 @@
                         <label for="wifi_password">Password</label>
                         <input class="u-full-width" type="password" name="wifi_password" id="wifi_password">
                     </div>
+                </div>
+                <div class="grid-container full">
+                    <input class="button-primary" type="submit" value="Save">
+                </div>                
+            </form>
+        </article>
+    </section>
+    <section>
+        <div class="grid-container full">
+            <h2 class="u-full-width">WiFi Access Point Settings</h2>
+        </div>
+        <article>
+            <form action="/save_ap_cfg" method="post">
+                <div class="grid-container quarters">
                     <div>
                         <label for="ap_password">Wireless Access Point Password</label>
                         <input class="u-full-width" type="password" name="ap_password" id="ap_password">
